@@ -1,2 +1,1 @@
-# Test_auto_form
-Test_auto_form &lt;AutoForm />
+Full-stack MERN Auth project: Build & Deploy (Reactjs, json web token, jwt, redux toolkit cookie)
