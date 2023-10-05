@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-mongoose.connect("")
+mongoose.connect(process.env.MONGO)
 
 const app = express();
 
