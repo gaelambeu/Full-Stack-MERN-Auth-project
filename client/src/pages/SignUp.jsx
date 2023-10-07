@@ -10,7 +10,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch ('http://localhost:3000/api/auth/signup', formData);
+    const res = await fetch ('/api/auth/signup', formData);
     const data = await res.json();
     console.log(data);
   };
