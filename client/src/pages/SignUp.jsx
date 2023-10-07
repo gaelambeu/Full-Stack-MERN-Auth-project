@@ -10,7 +10,10 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  }
+    const res = await fetch ('http://localhost:3000/api/auth/signup', formData);
+    const data = await res.json();
+    console.log(data);
+  };
    
   return (
     <div className='p-3 max-w-lg mx-auto'>
