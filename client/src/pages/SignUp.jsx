@@ -22,7 +22,12 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+      console.log(data)
       setLoading(false);
+      if (data.error) {
+        setError(true);
+        return;
+      }
       //setError(false);
     } catch (error) {
       setLoading(false);
