@@ -13,3 +13,14 @@ export const signup = async (req, res, next) => {
     next(error);
    }
 }
+
+
+export const signin = async (req, res, next) => {
+   const { email, password } = req.body;
+   try {
+      const validUser = await User.findOne({ email });
+      if (!validUser) return 
+   } catch (error) {
+      next(error)
+   }
+}
