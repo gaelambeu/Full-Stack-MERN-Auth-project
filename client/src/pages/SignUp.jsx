@@ -14,6 +14,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
+      setError(false);
       const res = await fetch ('/api/auth/signup', {
         method: 'POST',
         headers: {
@@ -28,7 +29,6 @@ export default function SignUp() {
         setError(true);
         return;
       }
-      setError(false)
     } catch (error) {
       setLoading(false);
       setError(true);
