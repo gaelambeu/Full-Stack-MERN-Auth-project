@@ -5,3 +5,16 @@ const initialState = {
     loading: false,
     error: false,
 }
+
+const userSlice = CreateSlice({
+    name: 'user',
+    initialState,
+    reducers: {
+        signInStart: (state) => {
+            state.loading = true;
+        },
+        signInSuccess: (state, action) => {
+            
+        }
+    }
+})
