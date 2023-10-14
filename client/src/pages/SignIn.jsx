@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function SignIn() {
 
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { loading, error } = useSelector((state) => state.user)
   const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData ({ ...formData, [e.target.id]: e.target.value});
