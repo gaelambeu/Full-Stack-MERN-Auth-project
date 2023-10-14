@@ -17,7 +17,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     
+      dispatch(signInStart())
       const res = await fetch ('/api/auth/signin', {
         method: 'POST',
         headers: {
@@ -26,15 +26,14 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      setLoading(false);
+      dispatch(signInSuccess(data))
       if (data.success === false) {
-        setError(true);
+       dispatch(signInFailure())
         return;
       }
       navigate('/');
     } catch (error) {
-      setLoading(false);
-      setError(true);
+      dispatch(signInFailure(error))
     }
   };
    
