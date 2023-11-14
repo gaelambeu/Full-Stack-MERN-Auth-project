@@ -8,6 +8,7 @@ export default function SignIn() {
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.user)
+  console.log(loading, error);
   const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData ({ ...formData, [e.target.id]: e.target.value});
@@ -27,13 +28,14 @@ export default function SignIn() {
       const data = await res.json();
       
       if (data.success === false) {
-       dispatch(signInFailure(data.message))
+       dispatch(signInFailure(data))
         return;
       }
       dispatch(signInSuccess(data))
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error))
+      console.log(error);
     }
   };
    
@@ -53,7 +55,7 @@ export default function SignIn() {
           <span className='text-blue-500'>Sign up</span>
         </Link>
       </div>
-      <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>
+      <p className='text-red-700 mt-5'>{error ? error.message || 'Something went wrong!' : ''}</p>
     </div>
   )
 }
