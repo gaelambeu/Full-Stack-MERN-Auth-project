@@ -25,8 +25,8 @@ export default function SignIn() {
         },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
-      
       if (data.success === false) {
        dispatch(signInFailure(data))
         return;
@@ -35,7 +35,6 @@ export default function SignIn() {
       navigate('/');
     } catch (error) {
       dispatch(signInFailure(error))
-      console.log(error);
     }
   };
    
