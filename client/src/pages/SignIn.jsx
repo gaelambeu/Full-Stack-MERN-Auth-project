@@ -35,11 +35,12 @@ export default function SignIn() {
 
       /* ====== console.log(data) ====== */
       /* ====== setLoading(false); =====*/
-      dispatch(signInSuccess(data))
+      
       if (data.success === false) {
-        dispatch(signInFailure());
+        dispatch(signInFailure(data));
         return;
       }
+      dispatch(signInSuccess(data))
       navigate('/')
     } catch (error) {
       dispatch(signInFailure(error))
