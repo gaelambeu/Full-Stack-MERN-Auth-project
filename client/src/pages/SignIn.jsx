@@ -33,7 +33,7 @@ export default function SignIn() {
         setError(true);
         return;
       }
-      navigate('/sign-in')
+      navigate('/')
     } catch (error) {
       setLoading(false);
       setError(true);
