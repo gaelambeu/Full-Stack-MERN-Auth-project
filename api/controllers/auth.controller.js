@@ -49,7 +49,8 @@ export const google = async (req, res, next) => {
          const expiryDate = new Date(Date.now() + 3600000) //hour
          res.cookie('access_token', token, { htppOnly: true, expires: expiryDate })
       } else {
-
+         const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8)
+         const hashedPassword = bcryptjs.hashSync(generatedPassword, 10)
       }
    } catch (error) {
       next(error)
